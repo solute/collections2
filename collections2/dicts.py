@@ -24,7 +24,7 @@ class OrderedDict(MutableMapping):
         return iter(self._keys)
 
     def __setitem__(self, key, value):
-        if key not in self._keys:
+        if key not in self._d:
             self._keys.append(key)
         self._d[key] = value
 
@@ -51,7 +51,7 @@ class OrderedDict(MutableMapping):
         [1, 2, 3, 5, 4]
         '''
 
-        if key in self._keys:
+        if key in self._d:
             self._keys.remove(key)
         self._keys.insert(index, key)
         self._d[key] = value
