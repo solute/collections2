@@ -18,8 +18,7 @@ class OrderedSet(MutableSet):
         return value in self._set
 
     def __iter__(self):
-        for key in self._keys:
-            yield key
+        return iter(self._keys)
 
     def __len__(self):
         return len(self._set)
