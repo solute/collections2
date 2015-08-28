@@ -34,7 +34,9 @@ class OrderedSet(MutableSet):
             self._set.add(value)
 
     def discard(self, value):
-        self._set.discard(value)
+        if value in self._set:
+            self._keys.remove(value)
+            self._set.discard(value)
 
     def key_index(self, key):
         return self._keys.index(key)
