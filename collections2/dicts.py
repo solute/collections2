@@ -21,8 +21,7 @@ class OrderedDict(MutableMapping):
         return len(self._d)
 
     def __iter__(self):
-        for key in self._keys:
-            yield key
+        return iter(self._keys)
 
     def __setitem__(self, key, value):
         if key not in self._keys:
