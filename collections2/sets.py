@@ -53,7 +53,7 @@ class OrderedSet(MutableSet):
         '''
 
         if value in self._set:
-            self._set.discard(value)
+            self._keys.remove(value)
         self._keys.insert(index, value)
         self._set.add(value)
 
