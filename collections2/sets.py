@@ -3,14 +3,15 @@ from collections import MutableSet
 
 class OrderedSet(MutableSet):
     def __init__(self, items=None):
-        if items is None:
-            self._set = set()
-            self._keys = []
-            return
-        self._set = set(items)
+        self._set = set()
         self._keys = []
+
+        if items is None:
+            return
+
         for key in items:
-            if key not in self._keys:
+            if key not in self._set:
+                self._set.add(key)
                 self._keys.append(key)
 
     def __contains__(self, value):
